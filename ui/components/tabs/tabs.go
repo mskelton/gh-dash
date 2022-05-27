@@ -57,15 +57,15 @@ func (m *Model) SetCurrSectionId(id int) {
 func (m *Model) renderViewSwitcher(ctx context.ProgramContext) string {
 	var prsStyle, issuesStyle lipgloss.Style
 	if ctx.View == config.PRsView {
-		prsStyle = activeView
-		issuesStyle = inactiveView
+		prsStyle = activeTab
+		issuesStyle = tab
 	} else {
-		prsStyle = inactiveView
-		issuesStyle = activeView
+		prsStyle = tab
+		issuesStyle = activeTab
 	}
 
-	prs := prsStyle.Render("[ PRs]")
-	issues := issuesStyle.Render("[ Issues]")
-	return viewSwitcher.Copy().
+	prs := prsStyle.Render(" PRs")
+	issues := issuesStyle.Render(" Issues")
+	return lipgloss.NewStyle().
 		Render(lipgloss.JoinHorizontal(lipgloss.Top, prs, issues))
 }

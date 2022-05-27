@@ -26,7 +26,7 @@ type Dimensions struct {
 }
 
 var (
-	WaitingGlyph = lipgloss.NewStyle().Foreground(styles.DefaultTheme.FaintText).Render("")
+	WaitingGlyph = lipgloss.NewStyle().Foreground(styles.DefaultTheme.SecondaryText).Render("")
 	FailureGlyph = lipgloss.NewStyle().Foreground(styles.DefaultTheme.WarningText).Render("")
 	SuccessGlyph = lipgloss.NewStyle().Foreground(styles.DefaultTheme.SuccessText).Render("")
 

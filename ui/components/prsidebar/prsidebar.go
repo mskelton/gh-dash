@@ -7,7 +7,6 @@ import (
 	"github.com/charmbracelet/lipgloss"
 	"github.com/dlvhdr/gh-dash/data"
 	"github.com/dlvhdr/gh-dash/ui/components/pr"
-	"github.com/dlvhdr/gh-dash/ui/constants"
 	"github.com/dlvhdr/gh-dash/ui/markdown"
 	"github.com/dlvhdr/gh-dash/ui/styles"
 )
@@ -98,7 +97,9 @@ func (m *Model) renderChecksPill() string {
 	} else if status == "PENDING" {
 		return pillStyle.Copy().
 			Background(styles.DefaultTheme.FaintText).
-			Render(constants.WaitingGlyph + " Checks")
+			Foreground(styles.DefaultTheme.MainText).
+			Faint(true).
+			Render(" Checks")
 	}
 
 	return pillStyle.Copy().
